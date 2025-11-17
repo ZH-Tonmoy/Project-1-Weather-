@@ -1,0 +1,128 @@
+/* ANIMATED BACKGROUND */
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(120deg, #4facfe, #00f2fe, #6a11cb, #2575fc);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    font-family: Arial, sans-serif;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* MAIN CARD */
+.container {
+    width: 400px;
+    background: rgba(255, 255, 255, 0.25);
+    padding: 25px;
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    text-align: center;
+    animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* INPUT + BUTTON */
+.input-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    transition: 0.3s ease;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+input:focus {
+    box-shadow: 0 0 8px #fff, 0 0 15px #4facfe;
+}
+
+/* BUTTON STYLE + ANIMATION */
+button {
+    background: #2575fc;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    background: #1b5fd6;
+    transform: scale(1.05);
+}
+
+/* BUTTON RIPPLE EFFECT */
+button:active::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 5px;
+    height: 5px;
+    background: white;
+    opacity: 0.6;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(40);
+    transition: 0.5s;
+}
+
+/* WEATHER BOX */
+.weather-box {
+    display: none;
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    animation: fadeWeather 0.8s ease;
+}
+
+@keyframes fadeWeather {
+    from { opacity: 0; transform: scale(0.85); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* WEATHER ICON ANIMATION */
+.weather-box img {
+    width: 90px;
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.temp {
+    font-size: 40px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.condition {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
