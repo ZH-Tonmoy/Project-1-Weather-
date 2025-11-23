@@ -7,7 +7,7 @@ async function getWeather() {
         return;
     }
 
-    const apiKey = "7b629271ee8443fe990133358251711";
+    const apiKey = "d39fed24ebe648c7a45133550252311";
     const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}&aqi=yes`;
 
     try {
@@ -45,3 +45,4 @@ async function getWeather() {
         weatherBox.innerHTML = `<p style="color:red;">Failed to fetch weather data.</p>`;
     }
 }
+
